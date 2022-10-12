@@ -2,13 +2,13 @@
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 
-//初始化工作区，生成隐藏文件夹.git
+//初始化git工作区，生成隐藏文件夹.git
 $ git init
 
 //添加文件到暂存区
 $ git add readme.txt
 
-//提交暂存区修改到仓库
+//提交暂存区修改到当前分支（默认master）
 $ git commit -m "wrote a readme file"
 
 //查询状态
@@ -17,12 +17,13 @@ $ git status
 //对比修改文件
 $ git diff readme.txt 
 
-//查询修改记录，“commit id” 做每个版本标识
+//查询提交历史，以便确定要回退到哪个版本
+//“commit id” 每提交版本唯一标识
 $ git log
 
 //版本回退 HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^
 $ git reset --hard HEAD^
 $ git reset --hard “commit id”
 
-//命令记录
+//查询命令历史，以便确定要回到未来的哪个版本（回退后恢复修改）
 $ git reflog
