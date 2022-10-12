@@ -2,7 +2,7 @@
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 
-//初始化git工作区，生成隐藏文件夹.git
+//初始化git版本库，生成隐藏文件夹.git
 $ git init
 
 //添加文件到暂存区
@@ -14,8 +14,10 @@ $ git commit -m "wrote a readme file"
 //查询状态
 $ git status
 
-//对比修改文件
+//查看工作区和暂存区的区别
 $ git diff readme.txt 
+//查看工作区和版本库里面最新版本的区别
+$ git diff HEAD -- readme.txt
 
 //查询提交历史，以便确定要回退到哪个版本
 //“commit id” 每提交版本唯一标识
@@ -27,3 +29,12 @@ $ git reset --hard “commit id”
 
 //查询命令历史，以便确定要回到未来的哪个版本（回退后恢复修改）
 $ git reflog
+
+//撤销工作区的修改
+/*
+情况一
+readme.txt修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态
+情况二
+readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态
+*/
+$ git checkout -- readme.txt
